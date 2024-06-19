@@ -63,24 +63,17 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20' # The latest stable version of Node.js
+        node-version: '22'
         cache: 'npm'
 
-    - name: List contents of the frontend directory
-      run: |
-        ls -lR frontend/
-
     - name: Install frontend dependencies
-      run: |
-        cd frontend
-        npm install
+      working-directory: ./frontend  # Set the working directory for this step
+      run: npm install
 
     - name: Run Angular tests
-      run: |
-        cd frontend
-        npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      working-directory: ./frontend  # Set the working directory for this step
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
     - name: Build Angular project
-      run: |
-        cd frontend
-        ng build --prod
+      working-directory: ./frontend  # Set the working directory for this step
+      run: ng build --prod
