@@ -61,20 +61,43 @@ CREATE DATABASE clev;    # Create the database if it doesn't already exist
 \q                       # Exit the PostgreSQL prompt
 ```
 
-### Git Workflow
 
-To streamline your contributions, follow this simple Git workflow:
+## Development Workflow
+
+### Regular Development
 
 ```bash
-git pull origin main           # Always pull the latest changes from the main branch
-git checkout -b feature/your-feature-name  # Create a new branch for your feature
-# Implement your feature
+git checkout develop
+git pull origin develop
+git checkout -b feature/your-feature-name
+# Develop and make commits
 git add .
-git commit -m "Add a concise and informative commit message"
-git push origin feature/your-feature-name  # Push your branch
+git commit -m "Add a concise commit message"
+git push origin feature/your-feature-name
 ```
 
-Create a pull request through GitHub to merge your feature branch into the main branch after your changes are reviewed by peers.
+### Creating Pull Requests
+
+1. Open a pull request from `feature/your-feature-name` to `develop`.
+2. After review, merge it into `develop`.
+
+<!-- ### Preparing for Release
+
+```bash
+git checkout develop
+git pull origin develop
+git checkout main
+git merge develop
+git push origin main
+```
+
+### Tagging a Release
+
+```bash
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git push origin v1.0.0
+``` -->
+
 
 ### View Commit History
 
@@ -83,3 +106,4 @@ For a visual representation of the commit history, use:
 ```bash
 git log --graph --oneline --decorate
 ```
+Test
