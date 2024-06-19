@@ -61,16 +61,3 @@ jobs:
       run: |
         cd frontend
         ng build --prod
-
-# Custom environment settings for ChromeHeadless in CI
-env:
-  CHROME_BIN: /usr/bin/google-chrome
-
-# Additional setup for Chrome to run in a CI environment like GitHub Actions
-services:
-  chrome:
-    image: selenium/standalone-chrome
-    ports:
-      - 4444:4444
-    volumes:
-      - /dev/shm:/dev/shm
