@@ -9,6 +9,17 @@ on:
 jobs:
   backend-tests:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_DB: clev
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ballou
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -16,7 +27,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
-        python-version: '3.9' # Choose the version appropriate for your project
+        python-version: '3.9'
 
     - name: Install backend dependencies
       run: |
@@ -24,12 +35,19 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Wait for PostgreSQL to be ready
+      run: until pg_isready -h localhost -p 5432 -U your_user; do sleep 1; done
+
     - name: Run Django migrations
+      env:
+        DATABASE_URL: postgresql://postgres:ballou@localhost:5432/clev
       run: |
         cd backend
         python manage.py migrate
 
     - name: Run Django tests
+      env:
+        DATABASE_URL: postgresql://postgres:ballou@localhost:5432/clev
       run: |
         cd backend
         python manage.py test
@@ -45,7 +63,8 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16' # Use the Node version that matches your project requirements
+        node-version: '22'
+        cache: 'npm'
 
     - name: Install frontend dependencies
       run: |
