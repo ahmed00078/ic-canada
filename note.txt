@@ -24,3 +24,16 @@ sudo -u postgres psql
 \l
 \c clev
 \dt
+
+
+
+
+GitHub
+
+echo "# ic-canada" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ahmed00078/ic-canada.git
+git push -u origin main
