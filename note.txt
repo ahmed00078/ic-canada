@@ -11,9 +11,9 @@ cd backend/
 virtualenv icc
 source icc/bin/activate
 pip install -r requirements.txt
+
 python3 manage.py migrate
 python3 manage.py runserver
-
 
 
 
@@ -27,7 +27,6 @@ sudo -u postgres psql
 
 
 
-
 GitHub
 
 echo "# ic-canada" >> README.md
@@ -37,3 +36,6 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/ahmed00078/ic-canada.git
 git push -u origin main
+
+// affiche sous forme de graph
+git log --graph --oneline --decorate
