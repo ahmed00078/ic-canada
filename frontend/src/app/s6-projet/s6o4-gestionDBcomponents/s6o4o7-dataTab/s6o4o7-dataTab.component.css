@@ -1,0 +1,407 @@
+.container {
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  padding: 20px;
+
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid rgb(195, 219, 255);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+  background-color: rgb(234, 242, 242);
+}
+
+.rectangle {
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+.field-data-group {
+  display: flex;
+  gap: 10px; /* Adjust based on your needs */
+}
+
+.rectangle-detail {
+  min-width: 120px; /* Minimum width for each rectangle */
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid #002060;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.arrows {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  background-color: #002060;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.arrow:hover {
+  background-color: #003090;
+}
+
+
+
+.data-rectangle input:focus {
+  outline: none;
+}
+.container {
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid rgb(195, 219, 255);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+  background-color: rgb(234, 242, 242);}
+
+/* Your other CSS definitions... */
+
+
+
+.rectangle {
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+
+.field-data-group {
+  display: flex;
+  gap: 10px; /* Adjust based on your needs */
+}
+
+.rectangle-detail {
+  min-width: 120px; /* Minimum width for each rectangle */
+  height: 30px;
+  background-color: #ffffff;
+  border: 1px solid #002060;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.arrows {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  background-color: #002060;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.arrow:hover {
+  background-color: #003090;
+}
+
+.data-rectangle input {
+  width: 100%;
+  border: none;
+  text-align: center;
+  background: transparent; /* Makes the input's background transparent */
+}
+
+.data-rectangle input:focus {
+  outline: none;
+}
+.container {
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #002060;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.form-container {
+  margin-bottom: 20px;
+}
+
+
+
+
+.data-table-container {
+  width: 100%;
+}
+
+.fields-row, .data-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.fields-row{
+  font-weight: bold;
+}
+
+.rectangle-detail {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  border: 1px solid #002060;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-rectangle {
+  width: auto; /* Adjust based on content */
+}
+.field-rectangle {
+  text-transform: uppercase; /* Makes the field name uppercase */
+  font-weight: bold; /* Makes the field name bold */
+  padding: 5px 10px; /* Adjust padding */
+  background-color: #ffffff;
+  border: 2px solid #002060;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-rectangle {
+  font-weight: normal; /* Ensures the data is displayed in normal font weight */
+  text-transform: none; /* Ensures the data is not transformed */
+  padding: 5px 10px; /* Adjust padding */
+  background-color: #ffffff;
+  border: 1px solid #002060;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow {
+  cursor: pointer; /* Default cursor for clickable arrows */
+  /* Additional styling for arrows */
+}
+
+.arrow.disabled {
+  opacity: 0.3; /* Faded look for disabled arrows */
+  cursor: default; /* Default cursor for disabled arrows */
+  pointer-events: none; /* Prevents clicking */
+}
+.rectangle {
+  width: 200px;
+  height: 40px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.container {
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid rgb(195, 219, 255);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+  background-color: rgb(234, 242, 242);}
+
+  .edit-btn, .delete-btn, .submit-edit-btn, .cancel-edit-btn {
+    background: none; /* No background color */
+    border: none; /* No border */
+    padding: 0; /* Remove padding to make the button fit the icon size */
+    cursor: pointer; /* Cursor pointer to indicate it's clickable */
+  }
+
+  .edit-btn:focus, .delete-btn:focus, .submit-edit-btn:focus, .cancel-edit-btn:focus,
+  .edit-btn:hover, .delete-btn:hover, .submit-edit-btn:hover, .cancel-edit-btn:hover {
+    outline: none; /* Remove focus outline */
+    background: none; /* Ensure no background on hover/focus */
+    border: none; /* Ensure no border on hover/focus */
+  }
+
+  .edit-icon, .delete-icon {
+    display: block; /* Helps in aligning and styling the image properly */
+  }
+
+  /* Specific sizes for icons */
+  .edit-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .delete-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  .container {
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid rgb(195, 219, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1);
+    background-color: rgb(234, 242, 242);
+  }
+
+  .fields-row, .data-row, .input-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; /* Even spacing between elements */
+    margin-bottom: 10px; /* Space between rows */
+  }
+
+  .field-name, .data-detail, .input-field {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #002060;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #ffffff;
+  }
+
+  .input-field input {
+    width: 100%;
+    border: none;
+    text-align: center;
+  }
+
+  .input-field input:focus {
+    outline: none;
+  }
+  .input-and-submit-container {
+    display: flex;
+    justify-content: space-between; /* This will push the button to the right */
+    align-items: center; /* Aligns items vertically */
+  }
+
+  .input-row {
+    flex-grow: 1; /* Takes up all available space */
+  }
+
+  .delete-btn {
+    margin-left: 10px; /* Optional, adds some space between the input row and the button */
+  }
+
+
+
+
+
+  .fields-row, .data-row, .input-row {
+    width: 100%;  /* Ensures that each row takes the full width of its container */
+    display: flex;
+    justify-content: space-between; /* Distributes space evenly between children */
+  }
+
+  .field-name, .data-detail, .input-field {
+    flex: 1;  /* Each child will take an equal share of the row's width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #002060;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin: 2px;  /* Adds a slight margin between elements */
+    background-color: #ffffff;
+  }
+
+  .action-header, .action-buttons {
+    flex: 0 0 auto; /* Do not grow and shrink, size is auto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 10px; /* Spacing between buttons */
+  }
+
+  .edit-btn, .delete-btn, .submit-edit-btn, .cancel-edit-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .edit-icon, .delete-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .input-and-submit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ensures the container takes full width */
+  }
+
+  .input-row {
+    flex-grow: 1; /* Ensures it takes all available space pushing the button to the end */
+  }
+
+  .delete-btn {
+    margin-left: 10px; /* Adds space between the input row and the button */
+  }

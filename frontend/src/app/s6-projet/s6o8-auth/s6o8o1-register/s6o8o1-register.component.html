@@ -1,0 +1,17 @@
+<app-s6o6-nav></app-s6o6-nav>
+
+<form [formGroup]="form" (submit)="TS_Submit()">
+  <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+
+  <input formControlName="first_name" class="form-control" placeholder="First Name" required>
+
+  <input formControlName="last_name" class="form-control" placeholder="Last Name" required>
+
+  <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+
+  <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+
+  <input formControlName="address" class="form-control" placeholder="Address" required>
+
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+</form>

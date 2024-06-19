@@ -1,0 +1,26 @@
+cd frontend/
+
+npm install
+nvm install node
+ng serve
+
+
+
+cd backend/
+
+virtualenv icc
+source icc/bin/activate
+pip install -r requirements.txt
+python3 manage.py migrate
+python3 manage.py runserver
+
+
+
+
+DB:
+
+sudo -u postgres psql
+
+\l
+\c clev
+\dt

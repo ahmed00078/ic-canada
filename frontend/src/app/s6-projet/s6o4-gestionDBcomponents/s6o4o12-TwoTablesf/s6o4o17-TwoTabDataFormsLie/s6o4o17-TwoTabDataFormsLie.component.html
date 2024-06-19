@@ -1,0 +1,16 @@
+<div class="flex-container">
+  <ng-container *ngFor="let tableId of TS_objectKeys(selectedFieldsByTableId)">
+    <div class="container">
+      <div class="rectangle">{{ tableId }}</div>
+      <div class="field-data-group">
+        <div *ngFor="let field of selectedFieldsByTableId[tableId]" class="rectangle-detail">
+          <div>{{ field.name }}</div>
+          <div *ngFor="let dataItem of field.data" class="data-item">
+            <!-- Display details of each dataItem -->
+            <div *ngIf="dataItem.details[field.name] !== undefined">{{ dataItem.details[field.name] }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

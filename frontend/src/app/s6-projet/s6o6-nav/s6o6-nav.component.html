@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-logo" routerLink="/">CleverFlow</div>
+  <div class="navbar-items">
+    <div class="navbar-item" routerLink="/">Home</div>
+    <div class="navbar-item" routerLink="/GestionDB/">Create</div>
+    <div class="navbar-item" routerLink="/websites">My websites</div>
+    <div class="navbar-item">Themes</div>
+  </div>
+  <div *ngIf="V_authService.currentUserValue; else loggedOut" class="navbar-right">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <span class="navbar-item">{{ V_authService.currentUserValue.username }}</span>
+    <button class="login-button" (click)="TS_Logout()">Logout</button>
+  </div>
+  <ng-template #loggedOut>
+    <div class="navbar-item" routerLink="/login">
+      <button class="login-button">Login</button>
+    </div>
+  </ng-template>
+</nav>
+
+
+
+
+</body>
+</html>

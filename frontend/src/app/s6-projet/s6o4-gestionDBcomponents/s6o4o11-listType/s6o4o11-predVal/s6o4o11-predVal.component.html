@@ -1,0 +1,15 @@
+<div class="dialog-header">
+  <div mat-icon-button (click)="TS_closeDialog()" class="close-button">
+    <mat-icon>close</mat-icon>
+  </div>
+</div>
+<div class="content">
+<div class="values-container">
+  <input [(ngModel)]="newValue" placeholder="Enter a new value" type="text" (keyup.enter)="TS_addValue()" class="value-rectangle">
+
+  <div *ngFor="let value of values" class="value-rectangle">{{ value }}</div>
+</div>
+  <div class="buttons-container">
+    <div class="button" (click)="TS_closeDialog()">Done</div>
+  </div>
+</div>

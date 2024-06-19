@@ -1,0 +1,31 @@
+<div class="flex-container">
+  <div class="container" draggable="true">
+    <div class="buttons-row">
+      <div
+        class="button"
+        tabindex="0"
+        (click)="TS_selectButton('Data-Tab')"
+        [class.selected]="TS_isTabSelected()"
+      >
+        Data-Tab
+      </div>
+      <div
+        class="button"
+        tabindex="0"
+        (click)="TS_selectButton('Data-Tab Lié')"
+        [class.selected]="TS_isTabLieSelected()"
+      >
+        Data-Tab Lié
+      </div>
+    </div>
+    <div class="switch-button-container">
+      <div class="toggle-button" (click)="TS_toggleForm()">Switch to {{ isFormMode ? 'Tab' : 'Form' }}</div>
+    </div>
+    <ng-container [ngSwitch]="activeComponent">
+      <app-s6o4o14-TwoTabDataTab *ngSwitchCase="'Data-Tab'" [selectedFieldsByTableId]="selectedFieldsByTableId"></app-s6o4o14-TwoTabDataTab>
+      <app-s6o4o15-TwoTabDataTabLie *ngSwitchCase="'Data-Tab Lié'" [selectedFieldsByTableId]="selectedFieldsByTableId"></app-s6o4o15-TwoTabDataTabLie>
+      <app-s6o4o16-TwoTabDataForms *ngSwitchCase="'Data-Forms'" [selectedFieldsByTableId]="selectedFieldsByTableId"></app-s6o4o16-TwoTabDataForms>
+      <app-s6o4o17-TwoTabDataFormsLie *ngSwitchCase="'Data-Forms Lié'" [selectedFieldsByTableId]="selectedFieldsByTableId"></app-s6o4o17-TwoTabDataFormsLie>
+    </ng-container>
+  </div>
+</div>

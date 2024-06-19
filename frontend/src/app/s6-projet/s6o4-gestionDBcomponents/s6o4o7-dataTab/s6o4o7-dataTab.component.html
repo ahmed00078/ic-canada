@@ -1,0 +1,84 @@
+<div class="flex-container">
+  <div class="container">
+    <div class="rectangle">{{ selectedTable?.name }}</div>
+
+    <form *ngIf="fields && fields.length" [formGroup]="dataForm" >
+      <!-- Field Names Row -->
+      <div class="fields-row">
+        <div *ngFor="let field of fields" class="field-name">{{ field.name }}</div>
+        <div class="action-header">Actions</div> <!-- Placeholder for actions column -->
+      </div>
+
+      <!-- Data Display Rows -->
+      <div *ngFor="let dataSet of TS_currentDataSets(); let i = index" class="data-row">
+        <div *ngFor="let field of fields" class="data-detail">
+          <!-- Conditional display for list or normal text -->
+          <span *ngIf="dataSet.id !== currentEditId; else editFieldTemplate">
+            {{ dataSet.details[field.name] }}
+          </span>
+          <ng-template #editFieldTemplate>
+            <ng-container *ngIf="field.field_type === 'LIST'; else editTextInput">
+              <select [formControlName]="field.name">
+                <option *ngFor="let option of field.list_values" [value]="option">{{ option }}</option>
+              </select>
+            </ng-container>
+            <ng-template #editTextInput>
+              <input type="text" [formControlName]="field.name">
+            </ng-template>
+          </ng-template>
+        </div>
+        <!-- Action buttons -->
+        <div class="action-buttons">
+          <button *ngIf="dataSet.id !== currentEditId" class="edit-btn" (click)="TS_editRow(dataSet)">
+            <img src="assets/pen.png" alt="Edit" class="edit-icon">
+          </button>
+          <button *ngIf="dataSet.id === currentEditId" class="submit-edit-btn" (click)="TS_onSubmitEdit()">
+            Submit
+          </button>
+          <button *ngIf="dataSet.id === currentEditId" class="cancel-edit-btn" (click)="currentEditId = null">
+            Cancel
+          </button>
+          <button class="delete-btn" (click)="TS_deleteRow(dataSet.id)">
+            <img src="assets/delete.png" alt="Delete" class="delete-icon">
+          </button>
+        </div>
+      </div>
+
+      <div class="input-and-submit-container">
+        <!-- Input Data Row -->
+        <div class="input-row">
+          <div *ngFor="let field of fields" class="input-field">
+            <ng-container *ngIf="field.field_type === 'LIST'; else normalInput">
+              <select [formControlName]="field.name" class="select-field">
+                <option *ngFor="let option of field.list_values" [value]="option">{{ option }}</option>
+              </select>
+            <div *ngIf="field.field_type === 'IMAGE'">
+              <label>{{ field.name }}</label>
+              <input type="text" [formControlName]="field.name" placeholder="Enter image URL">
+            </div></ng-container>
+
+            <ng-template #normalInput>
+              <input type="text" placeholder="{{ field.name }}" [formControlName]="field.name" class="input-style">
+            </ng-template>
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <button class="delete-btn" (click)="TS_onSubmit()" >
+          <img src="assets/check.png" alt="Save" class="delete-icon">
+        </button>
+      </div>
+
+
+    </form>
+
+    <!-- Pagination -->
+    <div class="arrows">
+      <div *ngIf="currentPage > 1" (click)="TS_previousPage()" class="arrow">
+        <i class='fa fa-arrow-left' style='font-size:15px'></i>
+      </div>
+      <div *ngIf="currentPage < totalPages" (click)="TS_nextPage()" class="arrow">
+        <i class='fa fa-arrow-right' style='font-size:15px'></i>
+      </div>
+    </div>
+  </div>
+</div>

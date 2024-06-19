@@ -1,0 +1,151 @@
+<div class="making-app">
+    <div class="navbarprincipale">
+    <div class="button-container">
+        <button class="button" routerLink="/GestionDB">Gestion DB</button>
+        <button class="button" routerLink="/websites">Gestion UI</button>
+        <button class="button">Gestion BI</button>
+      </div>
+    </div>
+    
+    <div class="navbar">
+        <div class="btn" routerLink="">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>return</span>
+        </div>
+        <div class="menu">
+            <div class="item" (click)="TS_AddTextToFrame(frame)">Text</div>
+            <div class="item" (click)="imagePicker.click()">
+                Image
+                <input type="file" (change)="TS_ReadImage($event)" #imagePicker style="display: none;" />
+        </div>
+            <div class="item" (click)="TS_AddNavBarHorizToFrame(frame)">Navbar Horizontal</div>
+            <div class="item" (click)="TS_AddTableToFrame(frame)">Table</div>
+        </div>
+        <div class="btn" (click)="TS_SaveWebsite()">
+            <span>save</span>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="frames-list">
+            <button (click)="TS_AddFrame()">add Frame</button>
+            <p>Frames:</p>
+            <div class="item" (dblclick)="openFormFrameEdit=true"
+                [ngStyle]="{backgroundColor:idActiveframe===frame.id?'red':'#1766a5'}"
+                (click)="TS_SelectFrame(frame); idActiveframe=frame.id " *ngFor="let frame of framesList">{{frame.title}}
+            </div>
+        </div>
+        <div class="frame-container">
+            <div class="frame" #frame> </div>
+        </div>
+        <div class="settings-design">
+            <div *ngIf="openSettings">
+                <div *ngIf="openNavbarElement">
+                    <div class="label">Redirect to</div>
+                    <select (change)="TS_SetBtnRouteToFrame($event)" [(ngModel)]="routeBtn">
+                        <option>--- select route</option>
+                        <option *ngFor="let frame of framesList" [value]="frame.key">{{frame.title}}</option>
+                    </select>
+                    <button (click)="TS_AddNavBarHorizBtns()" *ngIf="openAddBtnNav">add nav item</button>
+                    <div class="hr"></div>
+                </div>
+                <div class="label" *ngIf="openText">Text</div>
+                <input *ngIf="openText" type="text" placeholder="write your text .." (input)="TS_SetTextToElement($event)"
+                    [value]="textInputSettingsValue" />
+                <div class="bgcolorbtn">
+                    <div class="indcolor" #bgpicker (click)="openBgPicker = !openBgPicker;openTextPicker = false"></div>
+                    <p>Background color</p>
+                    <div class="colorspickerbg"
+                        [ngStyle]="{opacity:openBgPicker ? '1' :'0',pointerEvents:openBgPicker ? 'all' :'none'}">
+                        <div class="color" (click)="TS_ChangeBackgroundColor(color,bgpicker)" *ngFor="let color of colors"
+                            [ngStyle]="{backgroundColor:color}"></div>
+                    </div>
+                </div>
+                <div class="bgcolorbtn">
+                    <div class="indcolor" #txtpicker (click)="openTextPicker = !openTextPicker;openBgPicker = false">
+                    </div>
+                    <p>Text color</p>
+                    <div class="colorspickertxt"
+                        [ngStyle]="{opacity:openTextPicker ? '1' :'0',pointerEvents:openTextPicker ? 'all' :'none'}">
+                        <div class="color" (click)="TS_ChangeTextColor(color,txtpicker)" *ngFor="let color of colors"
+                            [ngStyle]="{backgroundColor:color}"></div>
+                    </div>
+                </div>
+
+                <div class="hr"></div>
+                <div *ngIf="openControlsTable">
+                    <div class="label">add column</div>
+                    <button (click)="TS_SetTableControlsDisplay('addcolbtn')">oui / non</button>
+                    <div class="label">add row</div>
+                    <button (click)="TS_SetTableControlsDisplay('addrowbtn')">oui / non</button>
+                    <div class="label">update row</div>
+                    <button (click)="TS_SetTableControlsDisplay('updateRow')">oui / non</button>
+                    <div class="label">delete row</div>
+                    <button (click)="TS_SetTableControlsDisplay('deleteRow')">oui / non</button>
+                    <div class="label">Export excel</div>
+                    <button (click)="TS_SetTableControlsDisplay('exportXl')">oui / non</button>
+                    <div class="label">Import excel</div>
+                    <button (click)="TS_SetTableControlsDisplay('importXl')">oui / non</button>
+                </div>
+                <div class="hr"></div>
+                <button (click)="TS_RemoveElement()">delete item</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="edit-frame-details" *ngIf="openFormFrameEdit">
+        <div class="closebtn" (click)="openFormFrameEdit = false"><i class="fa-solid fa-x"></i></div>
+        <div class="form" [formGroup]="frameDetails">
+            <label>Title</label>
+            <br>
+            <input type="text" placeholder="write frame title" formControlName="title">
+            <br>
+            <label>route</label>
+            <br>
+            <input type="text" placeholder="write frame route" formControlName="route">
+            <br>
+            <button class="save" (click)="TS_SaveFrameDetails()">save</button>
+            <button class="save" (click)="TS_DeleteFrame()" style="background-color:red;">delete</button>
+        </div>
+    </div>
+
+    <div class="edit-frame-details" *ngIf="openFormrow">
+        <div class="closebtn" (click)="openFormrow = false"><i class="fa-solid fa-x"></i></div>
+        <div class="form" [formGroup]="frameDetails">
+            <div *ngFor="let row of  rowsFormData">
+                <label>{{row.title}}</label>
+                <br>
+                <input type="text" placeholder="write value" (input)="TS_ChangeRowValue($event,row.title)">
+            </div>
+            <br>
+            <button class="save" (click)="TS_AddRowTotable()">add row</button>
+        </div>
+    </div>
+
+    <div class="edit-frame-details" *ngIf="openFormrowUpdate">
+        <div class="closebtn" (click)="openFormrowUpdate = false"><i class="fa-solid fa-x"></i></div>
+        <div class="form" [formGroup]="frameDetails">
+            <div *ngFor="let row of  rowsFormData">
+                <label>{{row.title}}</label>
+                <br>
+                <input type="text" placeholder="write value" [value]="row.value"
+                    (input)="TS_ChangeRowValue($event,row.title)">
+            </div>
+            <br>
+            <button class="save" (click)="TS_UpdateColumn()">update row</button>
+        </div>
+    </div>
+
+    <div class="edit-frame-details" *ngIf="openFormcol">
+        <div class="closebtn" (click)="openFormcol = false"><i class="fa-solid fa-x"></i></div>
+        <div class="form" [formGroup]="frameDetails">
+            <label>Column title</label>
+            <br>
+            <input type="text" placeholder="write value" #colValue>
+            <br>
+            <button class="save" (click)="TS_AddColToTable(colValue.value)">add colone</button>
+        </div>
+    </div>
+</div>
