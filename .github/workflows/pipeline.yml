@@ -66,10 +66,9 @@ jobs:
         node-version: '22'
         cache: 'npm'
 
-    - name: List frontend directory contents  # Debugging step to verify the presence of package-lock.json
+    - name: List contents of the frontend directory
       run: |
-        cd frontend
-        ls -la
+        ls -lR frontend/
 
     - name: Install frontend dependencies
       run: |
@@ -85,4 +84,3 @@ jobs:
       run: |
         cd frontend
         ng build --prod
-      
