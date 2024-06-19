@@ -60,10 +60,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: List frontend directory contents
+      working-directory: ./frontend
+      run: ls -la
+    
+    - name: Display current working directory
+      run: pwd
+    
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22'
+        node-version: '20'  # Ensure this version matches the version you intend to use
         cache: 'npm'
 
     - name: Install frontend dependencies
