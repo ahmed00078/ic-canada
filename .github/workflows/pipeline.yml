@@ -64,7 +64,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20'  
-        cache: 'none'
+        cache: 'npm'
 
     - name: Install frontend dependencies
       working-directory: ./frontend

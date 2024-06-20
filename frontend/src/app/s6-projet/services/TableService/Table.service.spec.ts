@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async, inject } from '@angular/core/testing';
-import { TableService } from './Table.service';
+import { S_TableService as TableService } from './Table.service';
 
 describe('Service: Table', () => {
   beforeEach(() => {
