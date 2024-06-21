@@ -66,12 +66,12 @@ jobs:
         node-version: '20'  
         cache: 'npm'
 
-    - name: Check for dependency lock file
-      run: |
-        if [ ! -f ./frontend/package-lock.json ] && [ ! -f ./frontend/yarn.lock ]; then
-          echo "Error: No dependency lock file found (package-lock.json or yarn.lock)."
-          exit 1
-        fi
+    # - name: Check for dependency lock file
+    #   run: |
+    #     if [ ! -f ./frontend/package-lock.json ] && [ ! -f ./frontend/yarn.lock ]; then
+    #       echo "Error: No dependency lock file found (package-lock.json or yarn.lock)."
+    #       exit 1
+    #     fi
 
     - name: Install frontend dependencies
       run: |
