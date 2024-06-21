@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { S6o9SidebarComponent } from './s6o9-sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('S6o9SidebarComponent', () => {
   let component: S6o9SidebarComponent;
@@ -11,7 +12,8 @@ describe('S6o9SidebarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ S6o9SidebarComponent ]
+      declarations: [ S6o9SidebarComponent ],
+      imports: [ BrowserAnimationsModule ]
     })
     .compileComponents();
   }));

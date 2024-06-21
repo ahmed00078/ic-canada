@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { S6o4o14TwoTabDataTabComponent } from './s6o4o14-TwoTabDataTab.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('S6o4o14TwoTabDataTabComponent', () => {
   let component: S6o4o14TwoTabDataTabComponent;
@@ -11,7 +12,8 @@ describe('S6o4o14TwoTabDataTabComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ S6o4o14TwoTabDataTabComponent ]
+      declarations: [ S6o4o14TwoTabDataTabComponent ],
+      imports: [ HttpClientModule ],
     })
     .compileComponents();
   }));
