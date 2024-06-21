@@ -66,24 +66,25 @@ jobs:
         node-version: '20'  
         cache: 'npm'
 
-    # - name: Check for dependency lock file
-    #   run: |
-    #     if [ ! -f ./frontend/package-lock.json ] && [ ! -f ./frontend/yarn.lock ]; then
-    #       echo "Error: No dependency lock file found (package-lock.json or yarn.lock)."
-    #       exit 1
-    #     fi
+    - name: Check for dependency lock file
+      run: |
+        ls
+        if [ ! -f ./frontend/package-lock.json ] && [ ! -f ./frontend/yarn.lock ]; then
+          echo "Error: No dependency lock file found (package-lock.json or yarn.lock)."
+          exit 1
+        fi
+      working-directory: ./frontend
 
     - name: Install frontend dependencies
       run: |
-        cd frontend
+        ls
         npm install
+      working-directory: ./frontend
 
     - name: Run Angular tests
-      run: |
-        cd frontend
-        npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      working-directory: ./frontend
 
     - name: Build Angular project
-      run: |
-        cd frontend
-        ng build --prod
+      run: ng build --prod
+      working-directory: ./frontend
